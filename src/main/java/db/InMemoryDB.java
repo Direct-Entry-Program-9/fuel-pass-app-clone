@@ -3,10 +3,12 @@ package db;
 import java.util.ArrayList;
 
 public class InMemoryDB {
-    private static ArrayList<User> userDatabase = new ArrayList();
+    private static ArrayList<User> userDatabase = new ArrayList<>();
 
-    public static void registerUser(User user){
-        userDatabase.add(user);
+    public static boolean registerUser(User newUser){
+        if (findUser(newUser.getNic()) != null) return false;
+        userDatabase.add(newUser);
+        return true;
     }
 
     public static User findUser(String nic){
@@ -19,12 +21,8 @@ public class InMemoryDB {
     }
 
     public static void removeUser(String nic){
-        for (User user : userDatabase) {
-            if (user.getNic().equals(nic)){
-                userDatabase.remove(user);
-                return;
-            }
-        }
+        User user = findUser(nic);
+        if (user != null) userDatabase.remove(user);
     }
 
     public static ArrayList<User> getUserDatabase(){
