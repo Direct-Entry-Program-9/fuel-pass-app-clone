@@ -22,35 +22,34 @@ public class SplashScreenFormController {
     public Rectangle pgbContainer;
     public Rectangle pgbLoad;
 
-    public void initialize(){
+    public void initialize() {
         Timeline tl = new Timeline();
         var frame1 = new KeyFrame(Duration.millis(250), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                lblStatus.setText("Connecting with the database...!");
+                lblStatus.setText("Connecting with the database");
                 pgbLoad.setWidth(pgbLoad.getWidth() + 25);
             }
         });
-        var frame2 = new KeyFrame(Duration.millis(500), new EventHandler<ActionEvent>() {
+        var frame2 = new KeyFrame(Duration.millis(750), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                lblStatus.setText("Loading data...!");
+                lblStatus.setText("Loading data");
                 pgbLoad.setWidth(pgbLoad.getWidth() + 30);
             }
         });
-        var frame3 = new KeyFrame(Duration.millis(750), new EventHandler<ActionEvent>() {
+        var frame3 = new KeyFrame(Duration.millis(1250), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 lblStatus.setText("Setting up the UI");
-                pgbLoad.setWidth(pgbLoad.getWidth() + 25);
+                pgbLoad.setWidth(pgbContainer.getWidth());
             }
         });
-        var frame4 = new KeyFrame(Duration.millis(1000), new EventHandler<ActionEvent>() {
+        var frame4 = new KeyFrame(Duration.millis(1500), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
                 try {
-                    pgbLoad.setWidth(pgbContainer.getWidth());
-                    URL res = this.getClass().getResource("/view/HomeForm.fxml");
+                    URL res = this.getClass().getResource("/view/MainForm.fxml");
                     Parent homeFormContainer = FXMLLoader.load(res);
                     AnchorPane pneContainer = (AnchorPane) homeFormContainer.lookup("#pneContainer");
                     Navigation.init(pneContainer);

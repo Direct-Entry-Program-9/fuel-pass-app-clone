@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<AnchorPane fx:id="pneRegisterForm"  prefHeight="514.0" prefWidth="760.0" stylesheets="@../css/register-form.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterFormController">
+<AnchorPane fx:id="pneRegisterForm" prefHeight="514.0" prefWidth="760.0" stylesheets="@../css/register-form.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterFormController">
    <children>
       <Label alignment="CENTER" layoutY="28.0" prefHeight="16.0" prefWidth="435.0" text="REGISTRATION" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
@@ -129,7 +129,7 @@
             <Font name="Ubuntu" size="16.0" />
          </font>
       </TextField>
-      <Button id="btnRegister" fx:id="btnRegister" disable="true" layoutX="21.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="47.0" prefWidth="142.0" text="Register" AnchorPane.leftAnchor="22.0">
+      <Button id="btnRegister" fx:id="btnRegister" defaultButton="true" disable="true" layoutX="21.0" layoutY="445.0" mnemonicParsing="false" onAction="#btnRegisterOnAction" prefHeight="47.0" prefWidth="142.0" text="Register" AnchorPane.leftAnchor="22.0">
          <font>
             <Font name="Ubuntu Bold" size="21.0" />
          </font>

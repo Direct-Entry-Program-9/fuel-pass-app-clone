@@ -2,13 +2,12 @@ package controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import util.Navigation;
@@ -20,22 +19,25 @@ import java.net.URISyntaxException;
 import java.net.URL;
 
 public class AdminLoginFormController {
+
+    private static final String ADMIN_PASSWORD = "dep9@ADMIN";
     private static int attempts = 3;
 
     public PasswordField txtPassword;
-
-    private static final String ADMIN_PASSWORD = "dep9@ADMIN";
     public AnchorPane pneAdminLoginForm;
 
-    public void initialize(){
+    public void initialize() {
         Platform.runLater(txtPassword::requestFocus);
     }
 
     public void txtPasswordOnAction(ActionEvent actionEvent) throws IOException, URISyntaxException {
-        if (!txtPassword.getText().equals(ADMIN_PASSWORD)){
+        if (!txtPassword.getText().equals(ADMIN_PASSWORD)) {
 
-            if (attempts == 0){
-                new Alert(Alert.AlertType.ERROR, "Sorry, You have reached maximum number of attempts").showAndWait();
+            if (attempts == 0) {
+                Alert alert = new Alert(Alert.AlertType.ERROR, "Sorry, You have reached maximum number of attempts");
+                alert.getDialogPane().setMinWidth(400);
+                alert.getDialogPane().setMinHeight(170);
+                alert.showAndWait();
                 Platform.exit();
                 return;
             }
@@ -57,10 +59,13 @@ public class AdminLoginFormController {
 
             alert.setHeaderText("Invalid Login Credential");
             alert.setTitle("Access Denied");
+            alert.getDialogPane().setMinWidth(450);
+            alert.getDialogPane().setMinHeight(170);
 
             alert.showAndWait();
             mediaPlayer.dispose();
             txtPassword.requestFocus();
+            txtPassword.selectAll();
             return;
         }
 

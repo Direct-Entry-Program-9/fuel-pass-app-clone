@@ -1,7 +1,6 @@
 package controller;
 
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -10,9 +9,8 @@ import util.Navigation;
 import util.Routes;
 
 import java.io.IOException;
-import java.net.URL;
 
-public class HomeFormController {
+public class MainFormController {
 
     public AnchorPane pneContainer;
     public AnchorPane pneLogin;

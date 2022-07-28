@@ -10,7 +10,6 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.PixelWriter;
 import javafx.scene.image.WritableImage;
@@ -19,7 +18,6 @@ import javafx.scene.paint.Color;
 import util.Navigation;
 import util.Routes;
 
-import javax.imageio.ImageWriter;
 import java.io.IOException;
 
 public class UserDashboardFormController {
@@ -33,7 +31,7 @@ public class UserDashboardFormController {
     public Button btnPrint;
     public Button btnLogOut;
 
-    public void initialize(){
+    public void initialize() {
         Platform.runLater(pneDashboard::requestFocus);
     }
 
@@ -42,7 +40,7 @@ public class UserDashboardFormController {
         lblName.setText(user.getFirstName() + " " + user.getLastName());
         lblAddress.setText(user.getAddress());
         lblNIC.setText(user.getNic());
-        lblQuota.setText(user.getQuota() + "");
+        lblQuota.setText(user.getQuota() + " L (Weekly)");
 
         String plainSecret = user.getNic() + "-" + user.getFirstName();
 

@@ -31,14 +31,14 @@
             </Label>
          </children>
       </FlowPane>
-      <Label alignment="CENTER" layoutX="244.0" layoutY="151.0" text="Enter your NIC" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <Label alignment="CENTER" layoutX="244.0" layoutY="151.0" text="Enter Your NIC" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <font>
             <Font name="Ubuntu" size="16.0" />
          </font>
       </Label>
       <FlowPane alignment="CENTER" layoutY="180.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="txtNIC" prefHeight="31.0" prefWidth="321.0">
+            <TextField fx:id="txtNIC" alignment="CENTER" prefHeight="31.0" prefWidth="321.0">
                <font>
                   <Font name="Ubuntu" size="16.0" />
                </font>

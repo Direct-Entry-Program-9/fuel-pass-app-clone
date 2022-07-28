@@ -6,11 +6,12 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -18,7 +19,7 @@ import util.Navigation;
 import util.Routes;
 
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStream;
 
 public class RegisterFormController {
     public AnchorPane pneRegisterForm;
@@ -28,6 +29,12 @@ public class RegisterFormController {
     public TextField txtLastName;
     public TextField txtAddress;
     public Button btnRegister;
+
+    public static boolean isValidNIC(String input) {
+        if (input.length() != 10) return false;
+        if (!(input.endsWith("v") || input.endsWith("V"))) return false;
+        return input.substring(0, 9).matches("\\d+");
+    }
 
     private void setDisableCmp(boolean disable) {
         txtFirstName.setDisable(disable);
@@ -61,12 +68,6 @@ public class RegisterFormController {
         });
     }
 
-    public static boolean isValidNIC(String input) {
-        if (input.length() != 10) return false;
-        if (!(input.endsWith("v") || input.endsWith("V"))) return false;
-        return input.substring(0, 9).matches("\\d+");
-    }
-
     public void lblLoginOnMouseClicked(MouseEvent mouseEvent) throws IOException {
         Navigation.navigate(Routes.LOGIN);
     }
@@ -96,10 +97,24 @@ public class RegisterFormController {
                 firstName, txtLastName.getText(),
                 txtAddress.getText(), 16));
 
-        if (result){
-            new Alert(Alert.AlertType.INFORMATION, "Registration is success, you will be redirected to the login screen").showAndWait();
+        if (result) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Registration is successful, you will be redirected to the login screen");
+            InputStream resourceAsStream = this.getClass().getResourceAsStream("/image/tick.png");
+            Image image = new Image(resourceAsStream);
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(48);
+            imageView.setFitHeight(48);
+            alert.setGraphic(imageView);
+
+            alert.setHeaderText("Registered");
+            alert.setTitle("Congratulations");
+
+            alert.getDialogPane().setMinWidth(500);
+            alert.getDialogPane().setMinHeight(170);
+
+            alert.showAndWait();
             lblLoginOnMouseClicked(null);
-        }else{
+        } else {
             new Alert(Alert.AlertType.ERROR, "NIC is already registered, please double check your NIC").showAndWait();
             txtNIC.requestFocus();
         }
