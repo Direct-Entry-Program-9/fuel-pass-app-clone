@@ -15,7 +15,7 @@ public class Navigation {
         Navigation.pneContainer = pneContainer;
     }
 
-    public static void navigate(Routes route) throws IOException {
+    public static Object navigate(Routes route) throws IOException {
         pneContainer.getChildren().clear();
         URL resource;
         switch (route){
@@ -37,11 +37,14 @@ public class Navigation {
             default:
                 resource = Navigation.class.getResource("/view/ControlCenterForm.fxml");
         }
-        Parent container = FXMLLoader.load(resource);
+        FXMLLoader fxmlLoader = new FXMLLoader(resource);
+        Parent container = fxmlLoader.load();
+//        Parent container = FXMLLoader.load(resource);
         pneContainer.getChildren().add(container);
         AnchorPane.setTopAnchor(container, 0.0);
         AnchorPane.setRightAnchor(container, 0.0);
         AnchorPane.setBottomAnchor(container, 0.0);
         AnchorPane.setLeftAnchor(container, 0.0);
+        return fxmlLoader.getController();
     }
 }

@@ -1,8 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane fx:id="pneDashboard" focusTraversable="true" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardFormController">
-
+<AnchorPane fx:id="pneDashboard" focusTraversable="true" prefHeight="409.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.UserDashboardFormController">
+   <children>
+      <Label alignment="CENTER" layoutX="231.0" layoutY="28.0" text="User Dashboard" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <font>
+            <Font name="Ubuntu Bold" size="41.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgQR" fitHeight="179.0" fitWidth="192.0" layoutX="14.0" layoutY="104.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/qr-code.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="203.0" layoutY="123.0" prefHeight="247.0" prefWidth="375.0" spacing="10.0">
+         <children>
+            <HBox spacing="5.0">
+               <children>
+                  <Label prefHeight="19.0" text="Quota :">
+                     <font>
+                        <Font name="Ubuntu Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblQuota" prefHeight="19.0" text="16 L">
+                     <font>
+                        <Font name="Ubuntu" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label prefHeight="19.0" text="Name : ">
+               <font>
+                  <Font name="Ubuntu Bold" size="16.0" />
+               </font>
+            </Label>
+            <AnchorPane>
+               <children>
+                  <Label fx:id="lblName" prefHeight="19.0" text="Kasun Sandanuwan" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Ubuntu" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="19.0" text="NIC :">
+               <font>
+                  <Font name="Ubuntu Bold" size="16.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="10.0" layoutY="34.0">
+               <children>
+                  <Label fx:id="lblNIC" prefHeight="19.0" text="841234567V" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Ubuntu" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Label layoutX="10.0" layoutY="58.0" prefHeight="19.0" text="Address :">
+               <font>
+                  <Font name="Ubuntu Bold" size="16.0" />
+               </font>
+            </Label>
+            <AnchorPane layoutX="10.0" layoutY="82.0">
+               <children>
+                  <Label fx:id="lblAddress" prefHeight="19.0" text="#551, Galle Road, Panadura" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font name="Ubuntu" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <Button fx:id="btnDownload" layoutX="27.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnDownloadOnAction" prefHeight="26.0" prefWidth="151.0" text="DOWNLOAD" />
+      <Button fx:id="btnPrint" layoutX="27.0" layoutY="319.0" mnemonicParsing="false" onAction="#btnPrintOnAction" prefHeight="26.0" prefWidth="151.0" text="PRINT" />
+      <Button fx:id="btnLogOut" layoutX="27.0" layoutY="357.0" mnemonicParsing="false" onAction="#btnLogOutOnAction" prefHeight="26.0" prefWidth="151.0" text="LOG OUT" />
+   </children>
 </AnchorPane>

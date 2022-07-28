@@ -94,7 +94,7 @@ public class RegisterFormController {
 
         boolean result = InMemoryDB.registerUser(new User(txtNIC.getText(),
                 firstName, txtLastName.getText(),
-                txtAddress.getText()));
+                txtAddress.getText(), 16));
 
         if (result){
             new Alert(Alert.AlertType.INFORMATION, "Registration is success, you will be redirected to the login screen").showAndWait();
