@@ -19,7 +19,7 @@
       </Label>
       <FlowPane alignment="CENTER" layoutX="66.0" layoutY="104.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <HBox style="-fx-background-color: white; -fx-background-radius: 10px;">
+            <HBox fx:id="card" style="-fx-background-color: white; -fx-background-radius: 10px;">
                <children>
                   <ImageView fx:id="imgQR" fitHeight="179.0" fitWidth="178.0" pickOnBounds="true" preserveRatio="true">
                      <image>

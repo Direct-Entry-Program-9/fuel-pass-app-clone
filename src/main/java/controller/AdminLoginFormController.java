@@ -2,6 +2,7 @@ package controller;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.print.Printer;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.image.Image;
@@ -13,6 +14,7 @@ import javafx.scene.media.MediaPlayer;
 import util.Navigation;
 import util.Routes;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URISyntaxException;
